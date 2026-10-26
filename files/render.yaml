@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: digital-detective
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - {key: ANTHROPIC_API_KEY, sync: false}
+      - {key: TAVILY_API_KEY, sync: false}
+      - {key: ANTHROPIC_MODEL, value: claude-sonnet-5-5}

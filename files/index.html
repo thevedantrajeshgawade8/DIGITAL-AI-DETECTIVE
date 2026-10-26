@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Detective – Evidence-based message checker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="wrap glass">
+  <a class="logo" href="#top"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></i>Digital Detective</a>
+  <div class="links"><a href="#start">Investigate</a><a href="#how">How it works</a><a href="#safety">Safety</a>
+  <button class="icon-btn" id="theme" aria-label="Switch light or dark theme">◐</button></div>
+</div></nav>
+
+<header class="hero wrap" id="top">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <h1>Don’t guess. <span class="gt">Check the evidence.</span></h1>
+  <p class="lead">Paste a message or upload a screenshot. Digital Detective pulls out each claim, searches for independent sources, and shows you what is verified, contradicted or still unknown.</p>
+  <ol class="pipe"><li>Upload</li><li>Extract</li><li>Search</li><li>Compare evidence</li><li>Report</li></ol>
+  <div class="cta"><a class="btn" href="#start">Start an investigation</a><button class="btn ghost" id="demoTop">See a demo report</button></div>
+</header>
+
+<main>
+<section id="start"><div class="wrap">
+  <div class="sh"><h2>Investigate a message</h2><p>Scholarships, job offers, ads or links you’re unsure about. Text, PNG, JPEG or WEBP up to 8 MB.</p></div>
+  <div class="bench">
+    <div class="glass panel">
+      <label class="t" for="txt">Message text</label>
+      <textarea id="txt" placeholder="Paste the message here, for example: Congratulations! You won the National Student Scholarship. Pay Rs 499 before midnight to claim it."></textarea>
+      <label class="drop" id="drop"><input type="file" id="file" accept="image/png,image/jpeg,image/webp"><b>Drop a screenshot or click to browse</b><small>PNG, JPEG or WEBP · max 8 MB</small></label>
+      <div class="prev" id="prev"><img alt="Screenshot preview" id="pimg"><div><span id="pname"></span><small id="psize"></small></div><button class="btn ghost" id="rm" type="button">Remove</button></div>
+      <div class="msg" id="msg" role="alert"></div>
+      <div class="row"><button class="btn" id="go" type="button">Investigate</button><button class="btn ghost" id="demo" type="button">Load demo example</button></div>
+      <details class="cfg"><summary>Connect your backend</summary>
+        <input type="text" id="api" value="/investigate" aria-label="Investigate endpoint URL">
+        <label><input type="checkbox" id="useDemo" checked> Use demo data (no backend needed)</label>
+        <p>Untick to send a real request to the FastAPI <code>/investigate</code> endpoint. When the page is served by the backend this is detected automatically.</p>
+      </details>
+    </div>
+    <aside class="glass panel" aria-live="polite">
+      <h2 style="font-size:1.4rem">Investigation progress</h2>
+      <ol class="steps" id="steps" style="margin-top:1rem"></ol>
+    </aside>
+  </div>
+  <div id="report" style="margin-top:1.6rem" tabindex="-1"></div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="sh"><h2>Built to explain, not just label</h2><p>Every verdict comes with its reasons and its sources.</p></div>
+  <div class="feat">
+    <div class="glass"><div class="ico">⌕</div><h3>Claim extraction</h3><p>Reads text and screenshots, then splits them into individual, testable claims.</p></div>
+    <div class="glass"><div class="ico">◎</div><h3>Live evidence</h3><p>Each source keeps its title, link, snippet and retrieval time so you can check it.</p></div>
+    <div class="glass"><div class="ico">⚖</div><h3>Four clear statuses</h3><p>Verified, contradicted, unverified and suspicious stay separate, never blended.</p></div>
+    <div class="glass"><div class="ico">▲</div><h3>Explainable risk score</h3><p>Rule-based indicators add up to a score. It is not a probability of fraud.</p></div>
+  </div>
+</div></section>
+
+<section id="safety"><div class="wrap">
+  <div class="sh"><h2>Honest by design</h2><p>Swipe through what the tool promises and what it won’t.</p></div>
+  <div class="snap">
+    <div class="glass"><b>Unknown stays unknown</b><p>If no reliable source is found, the claim is marked unverified, not guilty.</p></div>
+    <div class="glass"><b>No invented citations</b><p>Only links the system actually retrieved can appear in a report.</p></div>
+    <div class="glass"><b>Screenshots are data</b><p>Text inside an image is never treated as instructions.</p></div>
+    <div class="glass"><b>Keys stay private</b><p>API keys live on the backend. This page never holds them.</p></div>
+    <div class="glass"><b>No warning signs isn’t proof</b><p>A clean result does not prove a message is legitimate.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><p>Digital Detective · Build the investigator, show the evidence, and make every conclusion explainable.</p><p>Team: Prathmesh (Frontend), Vedant (Backend + AI), Archit (Evidence search + testing)</p></div></footer>
+
+<script src="app.js"></script>
+</body>
+</html>
